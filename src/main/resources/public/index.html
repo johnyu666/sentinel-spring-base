@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>请求(快/慢都试试)</button>
+<ul></ul>
+<script>
+        let ul=document.querySelector("ul")
+        let btn=document.querySelector("button")
+        btn.addEventListener("click",()=>{
+            fetch("test1/"+Date.now())
+            .then(resp=>resp.text())
+            .then(info=>{
+                let li=document.createElement("li");
+                li.textContent=info
+                console.log(li);
+                ul.appendChild(li);
+                })
+        })
+    </script>
+</body>
+</html>
